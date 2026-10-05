@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#244f66" />
+    <title>ANITS | Central Placement Portal</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <section class="login-page" id="loginPage" aria-labelledby="login-heading">
+        <div class="login-box">
+          <p class="eyebrow">ANITS / PLACEMENT &amp; TRAINING</p>
+          <h1 id="login-heading">User Login</h1>
+          <p class="login-intro">Sign in to continue to the campus placement portal.</p>
+
+          <form id="loginForm">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter username"
+              autocomplete="username"
+              required
+            />
+
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter password"
+              autocomplete="current-password"
+              required
+            />
+
+            <button type="submit">Login <span aria-hidden="true">→</span></button>
+          </form>
+          <p class="login-footnote">Anil Neerukonda Institute of Technology &amp; Sciences</p>
+        </div>
+      </section>
+
+      <section class="success-page" id="successPage" aria-labelledby="portal-heading" hidden>
+        <header class="header" id="home">
+          <p class="eyebrow">ANITS / CAREER SERVICES</p>
+          <h1 id="portal-heading">Anil Neerukonda Institute of Technology &amp; Sciences</h1>
+          <p>Campus Placement Portal</p>
+        </header>
+
+        <nav class="navbar" aria-label="Main navigation">
+          <a href="#home">Home</a>
+          <a href="#portal-content">About</a>
+          <a href="#important-notice">Apply</a>
+          <a href="#important-notice">Results</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="content" id="portal-content" tabindex="-1">
+          <p class="eyebrow">STUDENT PORTAL / SIGN IN</p>
+          <h2>Login Successful</h2>
+          <p class="welcome-message" id="greeting" aria-live="polite"></p>
+          <p class="login-time-label">Login time</p>
+          <p class="login-time" id="loginTime"></p>
+
+          <section class="notice" id="important-notice" aria-labelledby="notice-heading">
+            <p class="eyebrow">PLACEMENT &amp; TRAINING</p>
+            <h3 id="notice-heading">Important Notice</h3>
+            <ul>
+              <li>Check placement updates regularly.</li>
+              <li>Attend placement activities on time.</li>
+              <li>Keep your profile and documents updated.</li>
+            </ul>
+          </section>
+        </div>
+
+        <footer class="footer" id="contact">
+          <span>ANITS</span>
+          <span>Department of Placement &amp; Training · 2026</span>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>

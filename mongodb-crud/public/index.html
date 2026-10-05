@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student CRUD</title>
+</head>
+
+<body>
+
+<h1>Student Management System</h1>
+
+<h2>Add Student</h2>
+
+<input type="text" id="name" placeholder="Name">
+<input type="text" id="rollNo" placeholder="Roll Number">
+<input type="text" id="branch" placeholder="Branch">
+<input type="number" id="marks" placeholder="Marks">
+
+<button onclick="addStudent()">Add Student</button>
+
+<h2>Students</h2>
+
+<button onclick="getStudents()">View Students</button>
+
+<div id="students"></div>
+
+<script>
+
+async function addStudent() {
+
+    const student = {
+        name: document.getElementById("name").value,
+        rollNo: document.getElementById("rollNo").value,
+        branch: document.getElementById("branch").value,
+        marks: document.getElementById("marks").value
+    };
+
+    const response = await fetch("/students", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(student)
+    });
+
+    const data = await response.json();
+
+    alert(data.message);
+
+    getStudents();
+}
+
+
+async function getStudents() {
+
+    const response = await fetch("/students");
+
+    const students = await response.json();
+
+    let output = "";
+
+    students.forEach(student => {
+
+        output += `
+            <div>
+                <p>
+                    <b>Name:</b> ${student.name}
+                    <br>
+                    <b>Roll No:</b> ${student.rollNo}
+                    <br>
+                    <b>Branch:</b> ${student.branch}
+                    <br>
+                    <b>Marks:</b> ${student.marks}
+                </p>
+
+                <button onclick="updateStudent('${student._id}')">
+                    Update
+                </button>
+
+                <button onclick="deleteStudent('${student._id}')">
+                    Delete
+                </button>
+
+                <hr>
+            </div>
+        `;
+    });
+
+    document.getElementById("students").innerHTML = output;
+}
+
+
+async function updateStudent(id) {
+
+    const name = prompt("Enter new name:");
+    const marks = prompt("Enter new marks:");
+
+    const response = await fetch("/students/" + id, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: name,
+            marks: marks
+        })
+    });
+
+    const data = await response.json();
+
+    alert(data.message);
+
+    getStudents();
+}
+
+
+async function deleteStudent(id) {
+
+    if (!confirm("Are you sure you want to delete?")) {
+        return;
+    }
+
+    const response = await fetch("/students/" + id, {
+        method: "DELETE"
+    });
+
+    const data = await response.json();
+
+    alert(data.message);
+
+    getStudents();
+}
+
+</script>
+
+</body>
+</html>

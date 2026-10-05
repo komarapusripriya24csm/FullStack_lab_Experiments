@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fafafa" />
+    <title>Student List</title>
+    <link rel="stylesheet" href="student.css" />
+    <script src="student.js" defer></script>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Student List</h1>
+      <p>Manage the class list with a JavaScript array.</p>
+
+      <form onsubmit="addStudent(); return false;">
+        <label class="visually-hidden" for="studentName">Student name</label>
+        <input
+          id="studentName"
+          type="text"
+          placeholder="Enter a student name"
+          maxlength="60"
+          autocomplete="off"
+        />
+        <button type="submit">Add student</button>
+      </form>
+
+      <p class="student-count">Students: <strong id="count">0</strong></p>
+      <ul id="studentList" aria-label="Student names" aria-live="polite"></ul>
+    </main>
+  </body>
+</html>

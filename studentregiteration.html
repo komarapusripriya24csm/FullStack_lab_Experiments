@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+</head>
+
+<body>
+
+<h2>Student Registration Form</h2>
+
+<form action="#" method="post">
+
+    <!-- First Name -->
+    <label>First Name:</label>
+    <input type="text" name="firstname" required>
+    <br><br>
+
+    <!-- Last Name -->
+    <label>Last Name:</label>
+    <input type="text" name="lastname" required>
+    <br><br>
+
+    <!-- Email -->
+    <label>Email:</label>
+    <input type="email" name="email" required>
+    <br><br>
+
+    <!-- Password -->
+    <label>Password:</label>
+    <input type="password" name="password" required>
+    <br><br>
+
+    <!-- Gender -->
+    <label>Gender:</label>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <input type="radio" name="gender" value="Other"> Other
+    <br><br>
+
+    <!-- Date of Birth -->
+    <label>Date of Birth:</label>
+    <input type="date" name="dob">
+    <br><br>
+
+    <!-- Course -->
+    <label>Course:</label>
+    <select name="course">
+        <option>BCA</option>
+        <option>BSc</option>
+        <option>BCom</option>
+        <option>BTech</option>
+        <option>MCA</option>
+    </select>
+    <br><br>
+
+    <!-- Address -->
+    <label>Address:</label><br>
+    <textarea name="address" rows="4" cols="30"></textarea>
+    <br><br>
+
+    <!-- Phone -->
+    <label>Phone Number:</label>
+    <input type="tel" name="phone">
+    <br><br>
+
+    <!-- Buttons -->
+    <input type="submit" value="Register">
+    <input type="reset" value="Clear">
+
+</form>
+
+</body>
+</html>
